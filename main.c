@@ -15,6 +15,7 @@ int main()
         "miao miao",
         "",
         "How many characters are there in this string?",
+        "Oh my god this is a very long string, what will happen if I put it here? I don't know, let's try! I hope it works!",
         "Special\tCharacters\nTest",
         "漢字のテスト",
         "1234567890",

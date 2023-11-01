@@ -6,6 +6,7 @@ CCFLAGS = -g -Wall -Wextra -Werror #-fomit-frame-pointer
 NASM = nasm
 NASMFLAGS = -f elf64
 NAME = libasm.a
+TEST = test
 SRC_DIR = src
 OBJ_DIR = obj
 ASMSRC = $(SRC_DIR)/ft_strlen.s
@@ -23,9 +24,9 @@ $(NAME): $(ASMOBJ)
 	@echo "$(GREEN)Creating $(NAME)$(NC)"
 	$(LIB) $(NAME) $(ASMOBJ)
 
-test: all
+$(TEST): all
 	@echo "$(GREEN)Compiling test$(NC)"
-	$(CC) main.c $(NAME) -o test
+	$(CC) main.c $(NAME) -o $(TEST)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.s
 	@echo "$(GREEN)Assembling $<$(NC)"
