@@ -11,6 +11,7 @@ SRC_DIR = src
 OBJ_DIR = obj
 ASMSRC = $(SRC_DIR)/ft_strlen.s\
 		 $(SRC_DIR)/ft_strcpy.s\
+		 $(SRC_DIR)/ft_strcmp.s\
 		 
 ASMOBJ = $(ASMSRC:$(SRC_DIR)/%.s=$(OBJ_DIR)/%.o)
 

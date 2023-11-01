@@ -4,6 +4,7 @@
 
 size_t ft_strlen(const char *s);
 char *ft_strcpy(char *dst, const char *src);
+int ft_strcmp(const char *s1, const char *s2);
 
 #define GREEN   "\x1b[32m"
 #define YELLOW  "\x1b[33m"
@@ -20,6 +21,7 @@ int main()
         "Oh my god this is a very long string, what will happen if I put it here? I don't know, let's try! I hope it works!",
         "Special\tCharacters\nTest",
         "漢字のテスト",
+        "1234567890",
         "1234567890",
         NULL
     };
@@ -43,6 +45,14 @@ int main()
         strcpy(dst, strings[i]);
         ft_strcpy(dst2, strings[i]);
         printf("Test %d\t%s\n", i + 1, (strcmp(dst, dst2) == 0) ? (GREEN "OK" RESET) : (RED "KO" RESET));
+    }
+
+    printf(YELLOW "################################\n" RESET);
+    printf(YELLOW "####   Test ft_strcmp       ####\n" RESET);
+    printf(YELLOW "################################\n\n" RESET);
+
+    for (int i = 0; strings[i + 1]; i++) {
+        printf("Test %d\t%s\n", i + 1, (ft_strcmp(strings[i], strings[i + 1]) == strcmp(strings[i], strings[i + 1])) ? (GREEN "OK" RESET) : (RED "KO" RESET));
     }
 
     return 0;
