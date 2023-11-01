@@ -9,7 +9,9 @@ NAME = libasm.a
 TEST = test
 SRC_DIR = src
 OBJ_DIR = obj
-ASMSRC = $(SRC_DIR)/ft_strlen.s
+ASMSRC = $(SRC_DIR)/ft_strlen.s\
+		 $(SRC_DIR)/ft_strcpy.s\
+		 
 ASMOBJ = $(ASMSRC:$(SRC_DIR)/%.s=$(OBJ_DIR)/%.o)
 
 GREEN = \033[0;32m
