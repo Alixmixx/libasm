@@ -1,10 +1,15 @@
-#include <stdio.h>
+#include <errno.h>
+#include <unistd.h>
+#include <fcntl.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 size_t ft_strlen(const char *s);
 char *ft_strcpy(char *dst, const char *src);
 int ft_strcmp(const char *s1, const char *s2);
+ssize_t ft_write(int fd, const void *buf, size_t count);
+
 
 #define GREEN   "\x1b[32m"
 #define YELLOW  "\x1b[33m"
@@ -53,6 +58,14 @@ int main()
 
     for (int i = 0; strings[i + 1]; i++) {
         printf("Test %d\t%s\n", i + 1, (ft_strcmp(strings[i], strings[i + 1]) == strcmp(strings[i], strings[i + 1])) ? (GREEN "OK" RESET) : (RED "KO" RESET));
+    }
+
+    printf(YELLOW "\n################################\n" RESET);
+    printf(YELLOW "####   Test ft_write        ####\n" RESET);
+    printf(YELLOW "################################\n\n" RESET);
+
+    for (int i = 0; strings[i]; i++) {
+        printf("Test %d\t%s\n", i + 1, (ft_write(1, strings[i], strlen(strings[i])) == write(1, strings[i], strlen(strings[i]))) ? (GREEN "OK" RESET) : (RED "KO" RESET));
     }
 
     return 0;
