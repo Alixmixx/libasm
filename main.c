@@ -9,6 +9,7 @@ size_t ft_strlen(const char *s);
 char *ft_strcpy(char *dst, const char *src);
 int ft_strcmp(const char *s1, const char *s2);
 ssize_t ft_write(int fd, const void *buf, size_t count);
+ssize_t ft_read(int fd, void *buf, size_t count);
 
 
 #define GREEN   "\x1b[32m"
@@ -68,5 +69,31 @@ int main()
         printf("Test %d\t%s\n", i + 1, (ft_write(1, strings[i], strlen(strings[i])) == write(1, strings[i], strlen(strings[i]))) ? (GREEN "OK" RESET) : (RED "KO" RESET));
     }
 
+    printf(YELLOW "\n################################\n" RESET);
+    printf(YELLOW "####   Test ft_read         ####\n" RESET);
+    printf(YELLOW "################################\n\n" RESET);
+
+    char files[5][20] = {
+        "src/ft_strlen.s",
+        "src/ft_strcpy.s",
+        "src/ft_strcmp.s",
+        "",
+        "src/ft_read.s",
+    };
+    for (int i = 0; i < 5; i++)
+    {
+        int fd = open(files[i], O_RDONLY);
+        char buff[500] = {0};
+        char buff2[500] = {0};
+        int a = read(fd, buff, 100);
+        close(fd);
+        fd = open(files[i], O_RDONLY);
+        int b = ft_read(fd, buff2, 100);
+        close(fd);
+
+        printf("Test %d\t%s\t%s\n", 1, (a == b) ? (GREEN "OK" RESET) : (RED "KO" RESET),
+                (strcmp(buff, buff2) == 0) ? (GREEN "OK" RESET) : (RED "KO" RESET));
+        //printf("%s\n%s\n", buff, buff2);
+    }
     return 0;
 }

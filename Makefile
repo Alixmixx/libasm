@@ -13,6 +13,7 @@ ASMSRC = $(SRC_DIR)/ft_strlen.s\
 		 $(SRC_DIR)/ft_strcpy.s\
 		 $(SRC_DIR)/ft_strcmp.s\
 		 $(SRC_DIR)/ft_write.s\
+		 $(SRC_DIR)/ft_read.s\
 		 
 ASMOBJ = $(ASMSRC:$(SRC_DIR)/%.s=$(OBJ_DIR)/%.o)
 
