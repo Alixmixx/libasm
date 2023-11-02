@@ -22,7 +22,7 @@ ft_write:
 _exit_error:
 	neg rax					; negate return value
 	mov rdi, rax			; save the value in RAX to RDI
-	call errno_location	; call error function and save errno address in RAX
+	call errno_location		; call error function and save errno address in RAX
 	mov [rax], rdi			; save the old RAX to errno
 	mov rax, -1				; set return value to -1 if error
 	ret
