@@ -1,7 +1,7 @@
 RM = rm -rf
 MKDIR = mkdir -p
 LIB = ar rcs
-CC = gcc
+CC = clang
 CCFLAGS = -g -Wall -Wextra -Werror #-fomit-frame-pointer
 NASM = nasm
 NASMFLAGS = -f elf64
@@ -14,6 +14,7 @@ ASMSRC = $(SRC_DIR)/ft_strlen.s\
 		 $(SRC_DIR)/ft_strcmp.s\
 		 $(SRC_DIR)/ft_write.s\
 		 $(SRC_DIR)/ft_read.s\
+		 $(SRC_DIR)/ft_strdup.s\
 		 
 ASMOBJ = $(ASMSRC:$(SRC_DIR)/%.s=$(OBJ_DIR)/%.o)
 

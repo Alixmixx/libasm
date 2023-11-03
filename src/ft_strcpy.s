@@ -4,16 +4,18 @@ global ft_strcpy
 ; Copy a C-style NUL-terminated string into another C-string
 ; 
 ; Inputs:   RDI = address of beginning of the destination string
-; Outputs:  RSI = address of beginning of the source string
+;           RSI = address of beginning of the source string
+;
+; Outputs:  RAX = address of beginning of the destination string
 ; Clobbers: RBX, flags	
 
 ft_strcpy:
     mov  rax, rdi  ; dst
-    mov  rbx, rsi  ; src
-
+    xor r8b, r8b   ; r8b = 0
+    
 _loop:
-    mov  al, [rsi]  ; load the byte from src in the al reg (rax's lower 8 bits)
-    mov  [rdi], al  ; copy the byte from al to dst
+    mov  r8b, [rsi]  ; load the byte from src in the r8b reg (r8's lower 8 bits)
+    mov  [rdi], r8b  ; copy the byte from r8b to dst
     inc  rdi
     inc  rsi
     cmp  BYTE [rsi], 0
