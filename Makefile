@@ -1,7 +1,7 @@
 RM = rm -rf
 MKDIR = mkdir -p
 LIB = ar rcs
-CC = clang
+CC = gcc
 CCFLAGS = -g -Wall -Wextra -Werror #-fomit-frame-pointer
 NASM = nasm
 NASMFLAGS = -f elf64

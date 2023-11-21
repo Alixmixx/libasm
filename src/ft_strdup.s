@@ -16,7 +16,7 @@ ft_strdup:
 	call ft_strlen		; get len of string
 	mov rdi, rax		; len of malloc
 	inc rdi			    ; add 1 for null terminator
-	call malloc			; pointer stored in rax
+	call malloc	wrt ..plt		; pointer stored in rax
 	mov rdi, rax		; address of destination
 	mov rsi, r8		    ; address of source
 	call ft_strcpy		; copy string
